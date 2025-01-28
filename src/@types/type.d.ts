@@ -1,10 +1,6 @@
-type User = {
-  name: string;
-  phone: string;
-  email: string;
-  password: string;
-};
-
-type UserInfo = {
-  user: User;
+type UserData = {
+    name: string;
+    phone: string;
+    email: string;
+    password: string;
 };
