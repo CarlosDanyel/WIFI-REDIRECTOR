@@ -35,8 +35,7 @@ CREATE TABLE "user" (
 	"name" text,
 	"email" text,
 	"password" text,
-	"phone" text,
-	CONSTRAINT "user_email_unique" UNIQUE("email")
+	"phone" text
 );
 --> statement-breakpoint
 CREATE TABLE "verificationToken" (

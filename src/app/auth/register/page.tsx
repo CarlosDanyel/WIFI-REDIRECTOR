@@ -1,7 +1,5 @@
 "use client";
 
-import "dotenv/config";
-
 import { ModeToggle } from "@/components/shared/theme-toggle";
 import { Button } from "@/components/ui/button";
 import InputField from "@/components/ui/input/field";
@@ -9,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import RegisterAction from "../register/regsiterAction";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
     const defaultValues = {
@@ -17,6 +15,10 @@ export default function LoginPage() {
         phone: "",
         email: "",
         password: "",
+    };
+
+    const credentialsAction = (formData: FormData) => {
+        signIn("credentials", formData);
     };
 
     const { control } = useForm<UserData>({
@@ -27,7 +29,7 @@ export default function LoginPage() {
         <main className="w-full h-screen">
             <div className="grid grid-cols-[1fr,1.7fr] overflow-hidden w-full h-full ">
                 <form
-                    action={RegisterAction}
+                    action={credentialsAction}
                     className="p-10 mx-auto w-full max-w-[500px] flex justify-center flex-col gap-6 relative"
                 >
                     <div className="w-full flex justify-between align-top mb-auto ">

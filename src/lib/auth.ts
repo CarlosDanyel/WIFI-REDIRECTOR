@@ -4,28 +4,26 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { db } from "@/db";
 import { signInSchema } from "./zod";
 import { createUser } from "@/db/actions";
-import { saltAndHashPassword } from "./utils";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     adapter: DrizzleAdapter(db),
     providers: [
         Credentials({
             credentials: {
-                name: {},
-                email: {},
-                phone: {},
-                password: {},
+                name: { label: "Name", type: "text" },
+                email: { label: "Email", type: "email" },
+                phone: { label: "Phone", type: "text" },
+                password: { label: "Password", type: "password" },
             },
             authorize: async (credentials) => {
+                console.log("Credentials recebidos:", credentials);
                 const { email, name, password, phone } =
                     await signInSchema.parseAsync(credentials);
-
-                const pwHash = await saltAndHashPassword(password);
 
                 const newUser = await createUser({
                     email,
                     name,
-                    password: pwHash,
+                    password,
                     phone,
                 });
 
@@ -34,12 +32,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                     name: newUser.name,
                     email: newUser.email,
                     phone: newUser.phone,
-                    password: newUser.password,
                 };
             },
         }),
     ],
     pages: {
         signIn: "auth/register",
+    },
+    callbacks: {
+        authorized: async ({ auth }) => {
+            return !!auth;
+        },
     },
 });
