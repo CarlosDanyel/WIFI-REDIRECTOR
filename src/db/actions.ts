@@ -15,7 +15,11 @@ export async function createUser(formData: UserData) {
 
         const hashedPassword = await saltAndHashPassword(password);
 
-        // const existedUser = await getUser(email);
+        const existedUser = await getUser(email);
+
+        if (existedUser) {
+            throw new Error("Usuário já existe. Entre ou mude de senha.");
+        }
 
         await db.insert(users).values({
             email,
