@@ -4,3 +4,8 @@ type UserData = {
     email: string;
     password: string;
 };
+
+type NewPassword = {
+    user: UserData;
+    newPassword: string;
+};

@@ -13,3 +13,16 @@ export const saltAndHashPassword = async (password: string) => {
 
     return EncryptedPassword;
 };
+
+export const comparePasswords = async (
+    password: string,
+    hashedPassword: string
+) => {
+    try {
+        const isValidPassword = await bcrypt.compare(password, hashedPassword);
+
+        return isValidPassword;
+    } catch (error) {
+        console.log("Error ao verificar a senha", error);
+    }
+};
