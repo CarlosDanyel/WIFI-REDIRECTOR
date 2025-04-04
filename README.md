@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+  📡🔗<br>WIFI-RREDICTOR
+</h1>
 
-## Getting Started
+---
 
-First, run the development server:
+## 🌟 Sobre
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**WiFi-Rredictor** é uma aplicação web desenvolvida para funcionar como um **Captive Portal** — um sistema de redirecionamento automático que exibe uma interface personalizada assim que um usuário se conecta a uma rede Wi-Fi pública ou privada. Esse tipo de solução é amplamente utilizado em estabelecimentos comerciais, eventos ou espaços corporativos que desejam exibir mensagens, termos de uso ou coletar informações dos usuários no exato momento em que eles acessam a internet.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ao se conectar ao Wi-Fi, o usuário é imediatamente direcionado para esta aplicação, sem a necessidade de interação prévia. Essa experiência é possível através da configuração de um **roteador compatível com redirecionamento de gateway (Captive Portal)**, sendo imprescindível que o dispositivo de rede permita esse tipo de manipulação de tráfego HTTP inicial. A aplicação suporta interfaces dinâmicas, responsivas e pode ser personalizada conforme o objetivo do ambiente — desde landing pages informativas até formulários de acesso.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Funcionalidades
 
-## Learn More
+-   Redirecionamento automático após conexão Wi-Fi
+-   Interface adaptável e personalizável
+-   Experiência responsiva para todos os dispositivos
+-   Integração com autenticação de usuário via NextAuth e Supabase
+-   Registro de dados de conexão com banco relacional (PostgreSQL)
+-   Feedback instantâneo com notificações via Sonner
 
-To learn more about Next.js, take a look at the following resources:
+O foco está em oferecer uma solução simples, estável e segura para transformar redes Wi-Fi comuns em pontos estratégicos de interação com o usuário final.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💼 Tecnologias Utilizadas
 
-## Deploy on Vercel
+A aplicação foi construída com um stack moderno e eficiente, garantindo performance e fácil manutenção:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   **Next.js**
+-   **React.js**
+-   **TypeScript**
+-   **Tailwind CSS**
+-   **PostgreSQL**
+-   **Supabase**
+-   **NextAuth**
+-   **Sonner**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🔧 Requisitos
+
+Para funcionamento correto do WiFi-Rredictor como Captive Portal, é necessário:
+
+-   Um **roteador que permita configuração de redirecionamento(Captive Portal)**
+-   Permissões para alterar as regras de DNS e HTTP inicial na rede
+-   Certificado SSL (opcional, mas recomendado)
+
+---
+
+<h2>Desenvolvedor</h2>
+
+<table>
+  <tr>
+    <td align="center">
+      <p>Carlos Danyel Silva Teixeira</p>
+    </td>
+  </tr>
+</table>
